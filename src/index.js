@@ -2,14 +2,20 @@ const mongoose = require('mongoose');
 const app = require('./app');
 const config = require('./config/config');
 const logger = require('./config/logger');
-
+const password = encodeURIComponent('Saba123');
 let server;
-mongoose.connect(config.mongoose.url, config.mongoose.options).then(() => {
-  logger.info('Connected to MongoDB');
-  server = app.listen(config.port, () => {
-    logger.info(`Listening to port ${config.port}`);
+
+mongoose
+  .connect(`mongodb+srv://saba:Saba123@cluster0.slufbtz.mongodb.net/saba?retryWrites=true&w=majority`, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+  })
+  .then(() => {
+    logger.info('Connected to MongoDB');
+    server = app.listen(config.port, () => {
+      logger.info(`Listening to port ${config.port}`);
+    });
   });
-});
 
 const exitHandler = () => {
   if (server) {
