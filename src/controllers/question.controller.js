@@ -12,7 +12,7 @@ const createquestion = catchAsync(async (req, res) => {
 const getquestions = catchAsync(async (req, res) => {
   const filter = pick(req.query, ['name', 'role']);
   const options = pick(req.query, ['sortBy', 'limit', 'page']);
-  const result = await questionService.queryquestions(filter, options);
+  const result = await questionService.queryQuestions(filter, options);
   res.send(result);
 });
 
