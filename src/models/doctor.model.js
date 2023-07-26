@@ -28,7 +28,20 @@ const doctorSchema = mongoose.Schema(
       required: true,
       trim: true,
     },
+    language: {
+      type: String,
+      required: true,
+      trim: true,
+      default:"English"
+    },
+    telegramId: {
+      type: String,
+      required: true,
+      trim: true,
+      default:"-1"
+    },
   },
+  
   {
     timestamps: true,
   }
