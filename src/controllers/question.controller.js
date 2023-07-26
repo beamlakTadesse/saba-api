@@ -5,7 +5,7 @@ const catchAsync = require('../utils/catchAsync');
 const { questionService } = require('../services');
 
 const createquestion = catchAsync(async (req, res) => {
-  const question = await questionService.createquestion(req.body);
+  const question = await questionService.createQuestion(req.body);
   res.status(httpStatus.CREATED).send(question);
 });
 
@@ -17,7 +17,7 @@ const getquestions = catchAsync(async (req, res) => {
 });
 
 const getquestion = catchAsync(async (req, res) => {
-  const question = await questionService.getquestionById(req.params.questionId);
+  const question = await questionService.getQuestionById(req.params.questionId);
   if (!question) {
     throw new ApiError(httpStatus.NOT_FOUND, 'question not found');
   }
@@ -25,12 +25,12 @@ const getquestion = catchAsync(async (req, res) => {
 });
 
 const updatequestion = catchAsync(async (req, res) => {
-  const question = await questionService.updatequestionById(req.params.questionId, req.body);
+  const question = await questionService.updateQuestionById(req.params.questionId, req.body);
   res.send(question);
 });
 
 const deletequestion = catchAsync(async (req, res) => {
-  await questionService.deletequestionById(req.params.questionId);
+  await questionService.deleteQuestionById(req.params.questionId);
   res.status(httpStatus.NO_CONTENT).send();
 });
 
