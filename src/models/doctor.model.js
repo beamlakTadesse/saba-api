@@ -38,11 +38,14 @@ const doctorSchema = mongoose.Schema(
       type: String,
       required: true,
       trim: true, 
+      default:-1
+
     },
     patientId: {
       type: String,
       required: true,
       trim: true,
+      default:-1
     },
   },
   
