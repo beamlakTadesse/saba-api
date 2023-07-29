@@ -5,6 +5,7 @@ const docsRoute = require('./docs.route');
 const patientRoute = require('./patient.route');
 const doctorRoute = require('./doctor.route');
 const questionRoute = require('./question.route');
+const categoryRoute = require('./category.route')
 
 const config = require('../../config/config');
 
@@ -30,6 +31,10 @@ const defaultRoutes = [
   {
     path: '/questions',
     route: questionRoute,
+  },
+  {
+    path: '/category',
+    route: categoryRoute,
   },
   
 ];

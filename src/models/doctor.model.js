@@ -37,8 +37,12 @@ const doctorSchema = mongoose.Schema(
     telegramId: {
       type: String,
       required: true,
+      trim: true, 
+    },
+    patientId: {
+      type: String,
+      required: true,
       trim: true,
-      default:"-1"
     },
   },
   
