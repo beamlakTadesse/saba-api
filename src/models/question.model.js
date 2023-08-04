@@ -40,6 +40,11 @@ const questionSchema = mongoose.Schema(
       trim: true,
       default:"-1"
     },
+    sent: {
+      type: Boolean,
+      required: true,
+      default:true
+    },
   },
   
   {
