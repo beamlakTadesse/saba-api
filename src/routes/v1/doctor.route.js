@@ -3,10 +3,11 @@ const express = require('express');
 // const validate = require("../../middlewares/validate");
 // const bookValidation = require("../../validations/book.validation");
 const { doctorController } = require('../../controllers/index');
-
+const multerInstance = require('../../middlewares/multer')
 const router = express.Router();
 
-router.route('/').post(doctorController.createDoctor).get(doctorController.getDoctors);
+router.post('/',multerInstance.upload.fields([{ name: 'degree', maxCount: 1 }, { name: 'license', maxCount: 1 }]),doctorController.createDoctor);
+router.route('/').get(doctorController.getDoctors);
 router
   .route('/:phone')
   .get(doctorController.getDoctorByPhone)

@@ -9,10 +9,9 @@ const ApiError = require("../utils/ApiError");
  */
 const createDoctor = async (doctorbody) => {
   if(await getDoctorByPhone(doctorbody.phone)){
-  console.log(getDoctorByPhone(doctorbody.phone))
-      throw new ApiError(httpStatus.ALREADY_REPORTED, 'Doctor with phone number already found');
-    
+      throw new ApiError(httpStatus.ALREADY_REPORTED, 'Doctor with phone number already found');   
   }
+ 
   return Doctor.create(doctorbody);
 };
 
