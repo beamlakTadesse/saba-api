@@ -5,7 +5,24 @@ const catchAsync = require("../utils/catchAsync");
 const { doctorService } = require("../services");
 
 const createDoctor = catchAsync(async (req, res) => {
-  const book = await doctorService.createDoctor(req.body);
+  console.log(req)
+  const newDoctor = {
+    "name": req.body.name,
+    "phone": req.body.phone,
+    "sex": req.body.sex,
+    "age": req.body.age,
+    "yearOfGratulation": req.body.yearOfGratulation,
+    "degree": req.files['degree'][0].path,
+    "license":req.files['license'][0].path,
+    "role": req.body.role,
+    "alive": req.body.alive,
+    "status": req.body.status,
+    "language": req.body.language,
+    "telegramId": req.body.telegramId,
+    "patientId": req.body.patientId
+  }
+  console.log(newDoctor)
+  const book = await doctorService.createDoctor(newDoctor);
   res.status(httpStatus.CREATED).send(book);
 });
 

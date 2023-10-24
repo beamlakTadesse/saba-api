@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { toJSON, paginate } = require('./plugins');
+const { number } = require('joi');
 
 const doctorSchema = mongoose.Schema(
   {
@@ -11,6 +12,27 @@ const doctorSchema = mongoose.Schema(
     phone: {
       type: String,
       required: true,
+      trim: true,
+    },
+    sex: {
+      type: String,
+      required: true,
+    },
+    age: {
+      type: Number,
+      required: true,
+    },
+    yearOfGratulation: {
+      type: Number,
+      required: true,
+    },
+    degree: {
+      type: String,
+      trim: true,
+      required: true,
+    },
+    license: {
+      type: String,
       trim: true,
     },
     role: {
