@@ -5,8 +5,8 @@ const express = require('express');
 const { doctorController } = require('../../controllers/index');
 const multerInstance = require('../../middlewares/multer')
 const router = express.Router();
-
-router.post('/',multerInstance.upload.fields([{ name: 'degree', maxCount: 1 }, { name: 'license', maxCount: 1 }]),doctorController.createDoctor);
+// multerInstance.upload.fields([{ name: 'degree', maxCount: 1 }, { name: 'license', maxCount: 1 }])
+router.post('/',doctorController.createDoctor);
 router.route('/').get(doctorController.getDoctors);
 router
   .route('/:phone')

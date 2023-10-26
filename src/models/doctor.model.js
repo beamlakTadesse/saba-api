@@ -29,7 +29,7 @@ const doctorSchema = mongoose.Schema(
     degree: {
       type: String,
       trim: true,
-      required: true,
+      // required: true,
     },
     license: {
       type: String,
