@@ -27,7 +27,7 @@ const createDoctor = catchAsync(async (req, res) => {
 });
 
 const getDoctors = catchAsync(async (req, res) => {
-  const filter = pick(req.query, ["name", "role","alive","status"]);
+  const filter = pick(req.query, ["name", "role","alive","status","language"]);
   const options = pick(req.query, ["sortBy", "limit", "page"]);
   const result = await doctorService.queryDoctor(filter, options);
   res.send(result);
