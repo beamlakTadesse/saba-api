@@ -92,5 +92,10 @@
     "nodemon": "^2.0.0",
     "prettier": "^2.0.5",
     "supertest": "^6.0.1"
+  },  "resolutions": {
+    "**/**/node-gyp": "5.0.0"
+  },
+  "optionalDependencies": {
+    "fsevents": "2.3.3"
   }
 }
